@@ -11,19 +11,41 @@
 // Import Routes
 
 import { Route as rootRoute } from './routes/__root'
-import { Route as PathlessLayoutImport } from './routes/_pathlessLayout'
 import { Route as IndexImport } from './routes/index'
+import { Route as ProductQuickfinderImport } from './routes/product/quickfinder'
+import { Route as ProductDeploynestImport } from './routes/product/deploynest'
+import { Route as ProductConversioImport } from './routes/product/conversio'
+import { Route as ProductSlugImport } from './routes/product/$slug'
 
 // Create/Update Routes
-
-const PathlessLayoutRoute = PathlessLayoutImport.update({
-  id: '/_pathlessLayout',
-  getParentRoute: () => rootRoute,
-} as any)
 
 const IndexRoute = IndexImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const ProductQuickfinderRoute = ProductQuickfinderImport.update({
+  id: '/product/quickfinder',
+  path: '/product/quickfinder',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const ProductDeploynestRoute = ProductDeploynestImport.update({
+  id: '/product/deploynest',
+  path: '/product/deploynest',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const ProductConversioRoute = ProductConversioImport.update({
+  id: '/product/conversio',
+  path: '/product/conversio',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const ProductSlugRoute = ProductSlugImport.update({
+  id: '/product/$slug',
+  path: '/product/$slug',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -38,11 +60,32 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexImport
       parentRoute: typeof rootRoute
     }
-    '/_pathlessLayout': {
-      id: '/_pathlessLayout'
-      path: ''
-      fullPath: ''
-      preLoaderRoute: typeof PathlessLayoutImport
+    '/product/$slug': {
+      id: '/product/$slug'
+      path: '/product/$slug'
+      fullPath: '/product/$slug'
+      preLoaderRoute: typeof ProductSlugImport
+      parentRoute: typeof rootRoute
+    }
+    '/product/conversio': {
+      id: '/product/conversio'
+      path: '/product/conversio'
+      fullPath: '/product/conversio'
+      preLoaderRoute: typeof ProductConversioImport
+      parentRoute: typeof rootRoute
+    }
+    '/product/deploynest': {
+      id: '/product/deploynest'
+      path: '/product/deploynest'
+      fullPath: '/product/deploynest'
+      preLoaderRoute: typeof ProductDeploynestImport
+      parentRoute: typeof rootRoute
+    }
+    '/product/quickfinder': {
+      id: '/product/quickfinder'
+      path: '/product/quickfinder'
+      fullPath: '/product/quickfinder'
+      preLoaderRoute: typeof ProductQuickfinderImport
       parentRoute: typeof rootRoute
     }
   }
@@ -52,37 +95,68 @@ declare module '@tanstack/react-router' {
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
-  '': typeof PathlessLayoutRoute
+  '/product/$slug': typeof ProductSlugRoute
+  '/product/conversio': typeof ProductConversioRoute
+  '/product/deploynest': typeof ProductDeploynestRoute
+  '/product/quickfinder': typeof ProductQuickfinderRoute
 }
 
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
-  '': typeof PathlessLayoutRoute
+  '/product/$slug': typeof ProductSlugRoute
+  '/product/conversio': typeof ProductConversioRoute
+  '/product/deploynest': typeof ProductDeploynestRoute
+  '/product/quickfinder': typeof ProductQuickfinderRoute
 }
 
 export interface FileRoutesById {
   __root__: typeof rootRoute
   '/': typeof IndexRoute
-  '/_pathlessLayout': typeof PathlessLayoutRoute
+  '/product/$slug': typeof ProductSlugRoute
+  '/product/conversio': typeof ProductConversioRoute
+  '/product/deploynest': typeof ProductDeploynestRoute
+  '/product/quickfinder': typeof ProductQuickfinderRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | ''
+  fullPaths:
+    | '/'
+    | '/product/$slug'
+    | '/product/conversio'
+    | '/product/deploynest'
+    | '/product/quickfinder'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | ''
-  id: '__root__' | '/' | '/_pathlessLayout'
+  to:
+    | '/'
+    | '/product/$slug'
+    | '/product/conversio'
+    | '/product/deploynest'
+    | '/product/quickfinder'
+  id:
+    | '__root__'
+    | '/'
+    | '/product/$slug'
+    | '/product/conversio'
+    | '/product/deploynest'
+    | '/product/quickfinder'
   fileRoutesById: FileRoutesById
 }
 
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
-  PathlessLayoutRoute: typeof PathlessLayoutRoute
+  ProductSlugRoute: typeof ProductSlugRoute
+  ProductConversioRoute: typeof ProductConversioRoute
+  ProductDeploynestRoute: typeof ProductDeploynestRoute
+  ProductQuickfinderRoute: typeof ProductQuickfinderRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
-  PathlessLayoutRoute: PathlessLayoutRoute,
+  ProductSlugRoute: ProductSlugRoute,
+  ProductConversioRoute: ProductConversioRoute,
+  ProductDeploynestRoute: ProductDeploynestRoute,
+  ProductQuickfinderRoute: ProductQuickfinderRoute,
 }
 
 export const routeTree = rootRoute
@@ -96,14 +170,26 @@ export const routeTree = rootRoute
       "filePath": "__root.tsx",
       "children": [
         "/",
-        "/_pathlessLayout"
+        "/product/$slug",
+        "/product/conversio",
+        "/product/deploynest",
+        "/product/quickfinder"
       ]
     },
     "/": {
       "filePath": "index.tsx"
     },
-    "/_pathlessLayout": {
-      "filePath": "_pathlessLayout.tsx"
+    "/product/$slug": {
+      "filePath": "product/$slug.tsx"
+    },
+    "/product/conversio": {
+      "filePath": "product/conversio.tsx"
+    },
+    "/product/deploynest": {
+      "filePath": "product/deploynest.tsx"
+    },
+    "/product/quickfinder": {
+      "filePath": "product/quickfinder.tsx"
     }
   }
 }

@@ -9,12 +9,6 @@ export const Route = createFileRoute("/")({
 export default function Home() {
   return (
     <div className="flex flex-col items-center justify-start py-16 px-4 overflow-hidden relative">
-      {/* Background elements */}
-      <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0">
-        <div className="absolute top-[-20%] right-[-10%] w-[40%] h-[40%] bg-purple-600/10 rounded-full blur-[120px]" />
-        <div className="absolute bottom-[-10%] left-[-5%] w-[30%] h-[30%] bg-blue-600/10 rounded-full blur-[100px]" />
-      </div>
-
       <div className="relative z-10 flex flex-col items-center mb-20">
         <motion.img
           initial={{ scale: 0.5, opacity: 0 }}
@@ -68,6 +62,7 @@ export default function Home() {
           ]}
           gradientFrom="teal"
           gradientTo="blue"
+          slug="conversio"
         />
 
         <ProductCard
@@ -87,6 +82,7 @@ export default function Home() {
           gradientFrom="blue"
           gradientTo="purple"
           openSource={true}
+          slug="quickfinder"
         />
 
         <ProductCard
@@ -103,19 +99,9 @@ export default function Home() {
           gradientFrom="amber"
           gradientTo="red"
           isComingSoon={true}
+          slug="deploynest"
         />
       </div>
-
-      <motion.footer
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ delay: 0.2 }}
-        className="mt-32 text-gray-400 text-sm relative z-10 flex flex-col items-center"
-      >
-        <div className="h-px w-24 bg-gradient-to-r from-transparent via-gray-500/30 to-transparent mb-6"></div>
-        <p>© {new Date().getFullYear()} multibox labs. all rights reserved.</p>
-      </motion.footer>
     </div>
   );
 }
