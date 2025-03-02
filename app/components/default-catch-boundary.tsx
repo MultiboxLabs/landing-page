@@ -1,5 +1,7 @@
 import { ErrorComponent, rootRouteId, useMatch, useRouter } from "@tanstack/react-router";
 import type { ErrorComponentProps } from "@tanstack/react-router";
+import { ArrowLeftIcon, RefreshCcwIcon } from "lucide-react";
+import { HomeIcon } from "lucide-react";
 import { motion } from "motion/react";
 
 export function DefaultCatchBoundary({ error }: ErrorComponentProps) {
@@ -71,7 +73,7 @@ export function DefaultCatchBoundary({ error }: ErrorComponentProps) {
             }}
             className="px-8 py-2.5 bg-gradient-to-r from-purple-600/20 to-indigo-600/20 border border-purple-500/30 rounded-full text-sm hover:from-purple-600/30 hover:to-indigo-600/30 transition-all duration-300 flex items-center"
           >
-            <span className="mr-1">↻</span> Try Again
+            <RefreshCcwIcon className="w-4 h-4 mr-1" /> Try Again
           </motion.button>
           {isRoot ? (
             <motion.a
@@ -80,7 +82,7 @@ export function DefaultCatchBoundary({ error }: ErrorComponentProps) {
               href="/"
               className="px-8 py-2.5 bg-gradient-to-r from-blue-600/20 to-purple-600/20 border border-blue-500/30 rounded-full text-sm hover:from-blue-600/30 hover:to-purple-600/30 transition-all duration-300 flex items-center"
             >
-              <span className="mr-1">→</span> Home
+              <HomeIcon className="w-4 h-4 mr-1" /> Home
             </motion.a>
           ) : (
             <motion.button
@@ -89,7 +91,7 @@ export function DefaultCatchBoundary({ error }: ErrorComponentProps) {
               onClick={() => window.history.back()}
               className="px-8 py-2.5 bg-gradient-to-r from-blue-600/20 to-purple-600/20 border border-blue-500/30 rounded-full text-sm hover:from-blue-600/30 hover:to-purple-600/30 transition-all duration-300 flex items-center"
             >
-              <span className="mr-1">←</span> Go Back
+              <ArrowLeftIcon className="w-4 h-4 mr-1" /> Go Back
             </motion.button>
           )}
         </motion.div>

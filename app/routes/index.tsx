@@ -29,7 +29,7 @@ export default function Home() {
           initial={{ y: -20, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ delay: 0.2, duration: 0.5 }}
-          className="text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-violet-400 to-indigo-400 mb-4"
+          className="text-center text-6xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-violet-400 to-indigo-400 mb-4"
         >
           Multibox Labs
         </motion.h1>
@@ -55,7 +55,7 @@ export default function Home() {
         <div className="h-1 w-24 mx-auto bg-gradient-to-r from-transparent via-yellow-400/50 to-transparent rounded-full"></div>
       </motion.div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-16 max-w-5xl relative z-10">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-16 max-w-5xl relative z-10 [&>*:last-child:nth-child(2n+1)]:md:col-span-2 [&>*:last-child:nth-child(2n+1)]:md:mx-auto [&>*:last-child:nth-child(2n+1)]:md:max-w-md">
         <ProductCard
           title="Conversio"
           description="get answers to any questions quickly & easily"

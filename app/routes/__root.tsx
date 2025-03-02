@@ -52,9 +52,9 @@ function RootDocument({ children }: { children: React.ReactNode }) {
         <HeadContent />
       </head>
       <body className="min-h-screen bg-gradient-to-br from-[#0f0c1d] via-[#1a1625] to-[#231a35] text-gray-200">
-        <div className="absolute top-0 left-0 w-full h-full overflow-hidden z-0">
-          <div className="absolute top-[-20%] right-[-10%] w-[40%] h-[40%] bg-purple-600/10 rounded-full blur-[120px]" />
-          <div className="absolute bottom-[-10%] left-[-5%] w-[30%] h-[30%] bg-blue-600/10 rounded-full blur-[100px]" />
+        <div className="fixed top-0 left-0 w-full h-full overflow-hidden z-0 pointer-events-none">
+          <div className="absolute top-[-20%] right-[-10%] w-[40%] h-[40%] bg-purple-600/50 rounded-full blur-[120px]" />
+          <div className="absolute bottom-[-10%] left-[-5%] w-[30%] h-[30%] bg-blue-600/50 rounded-full blur-[100px]" />
         </div>
         <div className="relative z-10">{children}</div>
         <TanStackRouterDevtools position="bottom-right" />

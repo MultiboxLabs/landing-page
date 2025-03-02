@@ -1,3 +1,4 @@
+import { ArrowLeftIcon, HomeIcon } from "lucide-react";
 import { motion } from "motion/react";
 
 export function NotFound({ children }: { children?: React.ReactNode }) {
@@ -51,7 +52,7 @@ export function NotFound({ children }: { children?: React.ReactNode }) {
             onClick={() => window.history.back()}
             className="px-8 py-2.5 bg-gradient-to-r from-purple-600/20 to-indigo-600/20 border border-purple-500/30 rounded-full text-sm hover:from-purple-600/30 hover:to-indigo-600/30 transition-all duration-300 flex items-center"
           >
-            <span className="mr-1">←</span> Go Back
+            <ArrowLeftIcon className="w-4 h-4 mr-1" /> Go Back
           </motion.button>
           <motion.a
             whileHover={{ scale: 1.02 }}
@@ -59,7 +60,7 @@ export function NotFound({ children }: { children?: React.ReactNode }) {
             href="/"
             className="px-8 py-2.5 bg-gradient-to-r from-blue-600/20 to-purple-600/20 border border-blue-500/30 rounded-full text-sm hover:from-blue-600/30 hover:to-purple-600/30 transition-all duration-300 flex items-center"
           >
-            <span className="mr-1">→</span> Home
+            <HomeIcon className="w-4 h-4 mr-1" /> Home
           </motion.a>
         </motion.div>
       </motion.div>
