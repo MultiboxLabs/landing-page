@@ -11,17 +11,32 @@
 // Import Routes
 
 import { Route as rootRoute } from './routes/__root'
+import { Route as TeamImport } from './routes/team'
 import { Route as IndexImport } from './routes/index'
+import { Route as BlogIndexImport } from './routes/blog/index'
 import { Route as ProductQuickfinderImport } from './routes/product/quickfinder'
 import { Route as ProductDeploynestImport } from './routes/product/deploynest'
 import { Route as ProductConversioImport } from './routes/product/conversio'
 import { Route as ProductSlugImport } from './routes/product/$slug'
+import { Route as BlogSlugImport } from './routes/blog/$slug'
 
 // Create/Update Routes
+
+const TeamRoute = TeamImport.update({
+  id: '/team',
+  path: '/team',
+  getParentRoute: () => rootRoute,
+} as any)
 
 const IndexRoute = IndexImport.update({
   id: '/',
   path: '/',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const BlogIndexRoute = BlogIndexImport.update({
+  id: '/blog/',
+  path: '/blog/',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -49,6 +64,12 @@ const ProductSlugRoute = ProductSlugImport.update({
   getParentRoute: () => rootRoute,
 } as any)
 
+const BlogSlugRoute = BlogSlugImport.update({
+  id: '/blog/$slug',
+  path: '/blog/$slug',
+  getParentRoute: () => rootRoute,
+} as any)
+
 // Populate the FileRoutesByPath interface
 
 declare module '@tanstack/react-router' {
@@ -58,6 +79,20 @@ declare module '@tanstack/react-router' {
       path: '/'
       fullPath: '/'
       preLoaderRoute: typeof IndexImport
+      parentRoute: typeof rootRoute
+    }
+    '/team': {
+      id: '/team'
+      path: '/team'
+      fullPath: '/team'
+      preLoaderRoute: typeof TeamImport
+      parentRoute: typeof rootRoute
+    }
+    '/blog/$slug': {
+      id: '/blog/$slug'
+      path: '/blog/$slug'
+      fullPath: '/blog/$slug'
+      preLoaderRoute: typeof BlogSlugImport
       parentRoute: typeof rootRoute
     }
     '/product/$slug': {
@@ -88,6 +123,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProductQuickfinderImport
       parentRoute: typeof rootRoute
     }
+    '/blog/': {
+      id: '/blog/'
+      path: '/blog'
+      fullPath: '/blog'
+      preLoaderRoute: typeof BlogIndexImport
+      parentRoute: typeof rootRoute
+    }
   }
 }
 
@@ -95,68 +137,92 @@ declare module '@tanstack/react-router' {
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/team': typeof TeamRoute
+  '/blog/$slug': typeof BlogSlugRoute
   '/product/$slug': typeof ProductSlugRoute
   '/product/conversio': typeof ProductConversioRoute
   '/product/deploynest': typeof ProductDeploynestRoute
   '/product/quickfinder': typeof ProductQuickfinderRoute
+  '/blog': typeof BlogIndexRoute
 }
 
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/team': typeof TeamRoute
+  '/blog/$slug': typeof BlogSlugRoute
   '/product/$slug': typeof ProductSlugRoute
   '/product/conversio': typeof ProductConversioRoute
   '/product/deploynest': typeof ProductDeploynestRoute
   '/product/quickfinder': typeof ProductQuickfinderRoute
+  '/blog': typeof BlogIndexRoute
 }
 
 export interface FileRoutesById {
   __root__: typeof rootRoute
   '/': typeof IndexRoute
+  '/team': typeof TeamRoute
+  '/blog/$slug': typeof BlogSlugRoute
   '/product/$slug': typeof ProductSlugRoute
   '/product/conversio': typeof ProductConversioRoute
   '/product/deploynest': typeof ProductDeploynestRoute
   '/product/quickfinder': typeof ProductQuickfinderRoute
+  '/blog/': typeof BlogIndexRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
   fullPaths:
     | '/'
+    | '/team'
+    | '/blog/$slug'
     | '/product/$slug'
     | '/product/conversio'
     | '/product/deploynest'
     | '/product/quickfinder'
+    | '/blog'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
+    | '/team'
+    | '/blog/$slug'
     | '/product/$slug'
     | '/product/conversio'
     | '/product/deploynest'
     | '/product/quickfinder'
+    | '/blog'
   id:
     | '__root__'
     | '/'
+    | '/team'
+    | '/blog/$slug'
     | '/product/$slug'
     | '/product/conversio'
     | '/product/deploynest'
     | '/product/quickfinder'
+    | '/blog/'
   fileRoutesById: FileRoutesById
 }
 
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  TeamRoute: typeof TeamRoute
+  BlogSlugRoute: typeof BlogSlugRoute
   ProductSlugRoute: typeof ProductSlugRoute
   ProductConversioRoute: typeof ProductConversioRoute
   ProductDeploynestRoute: typeof ProductDeploynestRoute
   ProductQuickfinderRoute: typeof ProductQuickfinderRoute
+  BlogIndexRoute: typeof BlogIndexRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  TeamRoute: TeamRoute,
+  BlogSlugRoute: BlogSlugRoute,
   ProductSlugRoute: ProductSlugRoute,
   ProductConversioRoute: ProductConversioRoute,
   ProductDeploynestRoute: ProductDeploynestRoute,
   ProductQuickfinderRoute: ProductQuickfinderRoute,
+  BlogIndexRoute: BlogIndexRoute,
 }
 
 export const routeTree = rootRoute
@@ -170,14 +236,23 @@ export const routeTree = rootRoute
       "filePath": "__root.tsx",
       "children": [
         "/",
+        "/team",
+        "/blog/$slug",
         "/product/$slug",
         "/product/conversio",
         "/product/deploynest",
-        "/product/quickfinder"
+        "/product/quickfinder",
+        "/blog/"
       ]
     },
     "/": {
       "filePath": "index.tsx"
+    },
+    "/team": {
+      "filePath": "team.tsx"
+    },
+    "/blog/$slug": {
+      "filePath": "blog/$slug.tsx"
     },
     "/product/$slug": {
       "filePath": "product/$slug.tsx"
@@ -190,6 +265,9 @@ export const routeTree = rootRoute
     },
     "/product/quickfinder": {
       "filePath": "product/quickfinder.tsx"
+    },
+    "/blog/": {
+      "filePath": "blog/index.tsx"
     }
   }
 }
