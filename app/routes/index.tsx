@@ -9,7 +9,7 @@ export const Route = createFileRoute("/")({
 
 export default function Home() {
   return (
-    <div className="flex flex-col items-center justify-start py-16 px-4 overflow-hidden relative">
+    <div className="flex flex-col items-center justify-start pt-2 py-16 px-4 overflow-hidden relative">
       <div className="relative z-10 flex flex-col items-center mb-20">
         <motion.img
           initial={{ scale: 0.5, opacity: 0 }}

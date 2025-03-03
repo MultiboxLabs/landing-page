@@ -2,11 +2,21 @@ import ReactMarkdown from "react-markdown";
 import rehypeRaw from "rehype-raw";
 import rehypeSanitize from "rehype-sanitize";
 import remarkGfm from "remark-gfm";
-import { cn } from "@/lib/utils";
+import { cn, copyTextToClipboard } from "@/lib/utils";
+import ShikiHighlighter from "react-shiki";
+import { useState } from "react";
+import { Check } from "lucide-react";
+import { Copy } from "lucide-react";
 
 interface MarkdownRendererProps {
   content: string;
   className?: string;
+}
+
+function extractLanguage(className?: string): string {
+  if (!className) return "plaintext";
+  const match = className.match(/language-(\w+)/);
+  return match ? match[1] : "plaintext";
 }
 
 export function MarkdownRenderer({ content, className }: MarkdownRendererProps) {
@@ -39,16 +49,39 @@ export function MarkdownRenderer({ content, className }: MarkdownRendererProps) 
           blockquote: ({ node, ...props }) => (
             <blockquote {...props} className="border-l-4 border-purple-500 pl-4 py-1 my-4 italic text-gray-400" />
           ),
-          code: ({ node, ...props }) => {
+          code: ({ node, children, ...props }) => {
             const isInline = !node?.position?.start.line || node?.position?.start.line === node?.position?.end.line;
 
+            const [copied, setCopied] = useState(false);
+            function handleCopy() {
+              copyTextToClipboard(children as string);
+              setCopied(true);
+              setTimeout(() => {
+                setCopied(false);
+              }, 2000);
+            }
+
             return isInline ? (
-              <code {...props} className="bg-gray-800 text-purple-300 px-1 py-0.5 rounded text-sm" />
+              <code {...props} className="bg-gray-800 text-purple-300 px-1 py-0.5 rounded text-sm">
+                {children}
+              </code>
             ) : (
-              <code
-                {...props}
-                className="block bg-gray-800/50 border border-gray-700 p-4 rounded-md text-gray-300 overflow-x-auto"
-              />
+              <div className="relative">
+                <button
+                  onClick={handleCopy}
+                  className="absolute right-2 top-2 p-2 rounded-lg bg-gray-700/50 hover:bg-gray-700 transition-colors z-10"
+                >
+                  {copied ? <Check className="h-4 w-4 text-green-500" /> : <Copy className="h-4 w-4 text-gray-400" />}
+                </button>
+                <ShikiHighlighter
+                  language={extractLanguage(props.className)}
+                  theme="github-dark"
+                  showLanguage={false}
+                  className="*:!bg-gray-800"
+                >
+                  {children as string}
+                </ShikiHighlighter>
+              </div>
             );
           },
           pre: ({ node, ...props }) => <pre {...props} className="bg-transparent p-0 my-4" />

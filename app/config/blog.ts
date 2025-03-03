@@ -12,10 +12,10 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   {
-    slug: "introducing-multibox",
+    slug: "introducing-multibox-labs",
     title: "Introducing Multibox Labs",
     description: "Learn about our mission and the products we're building at Multibox Labs.",
-    publishedAt: "2023-09-01T00:00:00Z",
+    publishedAt: "2025-03-04T00:00:00.000Z",
     author: "Multibox Team",
     coverImage: "/blog/introducing-multibox.png",
     tags: ["announcement", "company"],
@@ -31,51 +31,11 @@ At Multibox Labs, we believe in creating tools that simplify complex workflows a
 
 We're launching with three initial products:
 
-1. **Conversio** - A powerful conversion tool for developers
-2. **DeployNest** - Simplified deployment for your applications
-3. **QuickFinder** - Find what you need, instantly
+1. **Conversio** - A large range of AI tools at your fingertips
+2. **QuickFinder** - A quick keystroke launcher for your apps & commands
+3. **DeployNest** - Simplified deployment for your applications
 
 Stay tuned for more updates as we continue to expand our product offerings.
-    `
-  },
-  {
-    slug: "building-with-tanstack-router",
-    title: "Building Modern Web Apps with TanStack Router",
-    description: "A deep dive into how we use TanStack Router to build performant web applications.",
-    publishedAt: "2023-10-15T00:00:00Z",
-    author: "Multibox Team",
-    tags: ["development", "react", "tutorial"],
-    content: `
-TanStack Router is a powerful routing solution for React applications. In this post, we'll explore how we use it at Multibox Labs.
-
-## Why TanStack Router?
-
-TanStack Router offers several advantages:
-
-- Type-safe routing
-- First-class search params
-- Nested routes
-- Lazy loading
-
-## Getting Started
-
-Here's a simple example of how to set up TanStack Router:
-
-\`\`\`tsx
-import { createRootRoute, Outlet } from '@tanstack/react-router'
-
-export const Route = createRootRoute({
-  component: () => (
-    <div>
-      <Header />
-      <Outlet />
-      <Footer />
-    </div>
-  ),
-})
-\`\`\`
-
-Stay tuned for more in-depth tutorials on building with modern web technologies!
     `
   }
 ];
