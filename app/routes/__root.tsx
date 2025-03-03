@@ -6,6 +6,7 @@ import appCss from "@/styles/app.css?url";
 import { seo } from "@/utils/seo";
 import { TanStackRouterDevtools } from "@/components/tanstack-router-dev-tools";
 import { motion } from "motion/react";
+import { MenuBar } from "@/components/menu-bar";
 
 export const Route = createRootRoute({
   head: () => ({
@@ -58,7 +59,8 @@ function RootDocument({ children }: { children: React.ReactNode }) {
           <div className="absolute bottom-[-10%] left-[-5%] w-[30%] h-[30%] bg-blue-600/50 rounded-full blur-[100px]" />
         </div>
         <div className="relative">
-          <div className="flex flex-col items-center justify-start py-16 px-4 overflow-hidden relative">
+          <MenuBar />
+          <div className="flex flex-col items-center justify-start py-8 px-4 overflow-hidden relative">
             <div className="relative z-10 w-full flex flex-col items-center">
               {children}
 
