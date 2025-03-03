@@ -40,6 +40,7 @@ export function MenuBar({ className }: MenuBarProps) {
       <div className="flex items-center gap-6">
         <MenuBarItem to="/" text="Home" />
         <MenuBarItem to="/blog" text="Blog" />
+        <MenuBarItem to="/team" text="Team" />
       </div>
     </motion.nav>
   );
