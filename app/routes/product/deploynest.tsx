@@ -2,40 +2,18 @@ import { createFileRoute } from "@tanstack/react-router";
 import { ProductHero } from "@/components/product/product-hero";
 import { ProductLayout } from "@/components/product/product-layout";
 import { motion } from "motion/react";
+import { products } from "@/config/products";
 
 export const Route = createFileRoute("/product/deploynest")({
   component: DeployNestPage
 });
 
 export default function DeployNestPage() {
-  const productData = {
-    title: "DeployNest",
-    description:
-      "DeployNest is a platform designed to simplify application deployment. With an intuitive interface and powerful automation features, it makes deploying applications of any size or complexity a breeze.",
-    image: "/projects/deploy-nest.png",
-    buttons: [
-      {
-        text: "soon...",
-        href: "#",
-        disabled: true
-      }
-    ],
-    gradientFrom: "amber",
-    gradientTo: "red",
-    isComingSoon: true
-  };
+  const productData = products.deploynest;
 
   return (
     <ProductLayout>
-      <ProductHero
-        title={productData.title}
-        description={productData.description}
-        image={productData.image}
-        buttons={productData.buttons}
-        gradientFrom={productData.gradientFrom}
-        gradientTo={productData.gradientTo}
-        isComingSoon={productData.isComingSoon}
-      />
+      <ProductHero {...productData} />
 
       <div className="max-w-4xl w-full mx-auto">
         <motion.div

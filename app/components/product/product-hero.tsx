@@ -42,7 +42,7 @@ export function ProductHero({
         </Link>
       </motion.div>
 
-      <div className="flex flex-col lg:flex-row items-center lg:items-start gap-12 mb-16">
+      <div className="flex flex-col lg:flex-row items-center lg:items-start gap-12">
         {/* Product Image */}
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}

@@ -2,37 +2,18 @@ import { createFileRoute } from "@tanstack/react-router";
 import { ProductHero } from "@/components/product/product-hero";
 import { ProductLayout } from "@/components/product/product-layout";
 import { motion } from "motion/react";
+import { products } from "@/config/products";
 
 export const Route = createFileRoute("/product/conversio")({
   component: ConversioPage
 });
 
 export default function ConversioPage() {
-  const productData = {
-    title: "Conversio",
-    description:
-      "Conversio is an AI-powered chat application that helps you find answers to your questions instantly. With a clean interface and powerful language models, it's designed to make information access simple and intuitive.",
-    image: "/projects/conversio.png",
-    buttons: [
-      {
-        text: "try it now",
-        href: "https://chat.iamevan.dev"
-      }
-    ],
-    gradientFrom: "teal",
-    gradientTo: "blue"
-  };
+  const productData = products.conversio;
 
   return (
     <ProductLayout>
-      <ProductHero
-        title={productData.title}
-        description={productData.description}
-        image={productData.image}
-        buttons={productData.buttons}
-        gradientFrom={productData.gradientFrom}
-        gradientTo={productData.gradientTo}
-      />
+      <ProductHero {...productData} />
 
       <div className="max-w-4xl w-full mx-auto">
         <motion.div

@@ -2,36 +2,26 @@ import { ArrowRightIcon, type LucideIcon } from "lucide-react";
 import colors from "tailwindcss/colors";
 import { motion } from "motion/react";
 import { Link } from "@tanstack/react-router";
+import { ProductConfig } from "@/config/products";
 
 interface ProductCardProps {
-  title: string;
-  description: string;
   icon?: LucideIcon;
-  image?: string;
-  buttons: Array<{
-    text: string;
-    href: string;
-    isComingSoon?: boolean;
-    disabled?: boolean;
-  }>;
-  gradientFrom: string;
-  gradientTo: string;
-  isComingSoon?: boolean;
-  openSource?: boolean;
-  slug?: string;
+  product: ProductConfig;
 }
 
 export function ProductCard({
-  title,
-  description,
   icon: Icon,
-  image,
-  buttons,
-  gradientFrom,
-  gradientTo,
-  isComingSoon = false,
-  openSource = false,
-  slug
+  product: {
+    title,
+    short_description,
+    image,
+    buttons,
+    gradientFrom,
+    gradientTo,
+    isComingSoon = false,
+    openSource = false,
+    slug
+  }
 }: ProductCardProps) {
   // @ts-ignore - colors typing issue
   const fromColor = colors[gradientFrom];
@@ -129,7 +119,7 @@ export function ProductCard({
         transition={{ delay: 0.3 }}
         className="text-center text-gray-300 text-sm max-w-xs mb-6 space-y-1 relative z-10"
       >
-        <p>{description}</p>
+        <p>{short_description}</p>
       </motion.div>
 
       {/* Regular buttons */}

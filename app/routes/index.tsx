@@ -1,6 +1,7 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { ProductCard } from "@/components/product-card";
 import { motion } from "motion/react";
+import { products } from "@/config/products";
 
 export const Route = createFileRoute("/")({
   component: Home
@@ -50,57 +51,9 @@ export default function Home() {
       </motion.div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-16 max-w-5xl relative z-10 [&>*:last-child:nth-child(2n+1)]:md:col-span-2 [&>*:last-child:nth-child(2n+1)]:md:mx-auto [&>*:last-child:nth-child(2n+1)]:md:max-w-md">
-        <ProductCard
-          title="Conversio"
-          description="get answers to any questions quickly & easily"
-          image="/projects/conversio.png"
-          buttons={[
-            {
-              text: "try it now",
-              href: "https://chat.iamevan.dev"
-            }
-          ]}
-          gradientFrom="teal"
-          gradientTo="blue"
-          slug="conversio"
-        />
-
-        <ProductCard
-          title="QuickFinder"
-          description="a cross-platform keystroke launcher that boosts your productivity"
-          image="/projects/quick-finder.png"
-          buttons={[
-            {
-              text: "releases (download)",
-              href: "https://github.com/QuickFinderApp/app/releases"
-            },
-            {
-              text: "view on github",
-              href: "https://github.com/QuickFinderApp/app"
-            }
-          ]}
-          gradientFrom="blue"
-          gradientTo="purple"
-          openSource={true}
-          slug="quickfinder"
-        />
-
-        <ProductCard
-          title="DeployNest"
-          description="deploy a wide range of applications easily and efficiently"
-          image="/projects/deploy-nest.png"
-          buttons={[
-            {
-              text: "soon...",
-              href: "#",
-              disabled: true
-            }
-          ]}
-          gradientFrom="amber"
-          gradientTo="red"
-          isComingSoon={true}
-          slug="deploynest"
-        />
+        <ProductCard product={products.conversio} />
+        <ProductCard product={products.quickfinder} />
+        <ProductCard product={products.deploynest} />
       </div>
     </div>
   );
