@@ -1,1 +1,0 @@
-import{t as e}from"./main-D72gyyXM.js";var t=e();function n(){return(0,t.jsx)(`div`,{children:`Nothing here yet`})}export{n as component};
