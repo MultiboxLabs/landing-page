@@ -26,12 +26,12 @@ export default function ConversioPage() {
           <div className="prose prose-invert max-w-none">
             <p>
               Conversio is designed to provide quick and accurate answers to your questions, powered by advanced
-              language models. Whether you're looking for information, seeking clarification, or exploring complex
-              topics, Conversio is here to help.
+              language models. Whether you are looking for information, seeking clarification, or exploring complex
+              topics, Conversio delivers the insights you need.
             </p>
             <p className="mt-4">
-              With its intuitive interface and powerful capabilities, Conversio makes accessing information as simple as
-              having a conversation. Just type your question and get clear, helpful responses instantly.
+              With an intuitive interface and powerful capabilities, Conversio makes accessing information as simple as
+              having a conversation. Type your question and receive clear, helpful responses instantly.
             </p>
           </div>
         </motion.div>

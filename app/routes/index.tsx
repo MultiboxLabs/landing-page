@@ -34,8 +34,8 @@ export default function Home() {
           transition={{ delay: 0.4, duration: 0.5 }}
           className="text-center text-gray-300 max-w-md"
         >
-          <p className="text-lg">welcome! explore innovative tools and applications,</p>
-          <p className="text-lg font-light">here's where creativity meets functionality</p>
+          <p className="text-lg">Building Software That Solves Real Problems.</p>
+          <p className="text-lg font-light">Tools and Applications Engineered for Performance.</p>
         </motion.div>
       </div>
 
@@ -46,7 +46,7 @@ export default function Home() {
         transition={{ delay: 0.6 }}
         className="mb-16 relative z-10"
       >
-        <h2 className="text-yellow-300 text-2xl mb-1 text-center font-light tracking-wider">products</h2>
+        <h2 className="text-yellow-300 text-2xl mb-1 text-center font-light tracking-wider uppercase">Products</h2>
         <div className="h-1 w-24 mx-auto bg-gradient-to-r from-transparent via-yellow-400/50 to-transparent rounded-full"></div>
       </motion.div>
 

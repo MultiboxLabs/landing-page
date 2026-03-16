@@ -22,13 +22,13 @@ export interface ProductConfig {
 export const products: Record<string, ProductConfig> = {
   conversio: {
     title: "Conversio",
-    short_description: "get answers to any questions quickly & easily with AI",
+    short_description: "Get Answers to Any Question Quickly & Easily With AI",
     description:
-      "Conversio is an AI-powered chat application that helps you find answers to your questions instantly. With a clean interface and powerful language models, it's designed to make information access simple and intuitive.",
+      "Conversio is an AI-powered chat application that delivers instant answers to your questions. Built with a clean interface and advanced language models, it is designed to make information access simple and intuitive.",
     image: "/projects/conversio.png",
     buttons: [
       {
-        text: "try it now",
+        text: "Try It Now",
         href: "https://chat.iamevan.dev"
       }
     ],
@@ -38,17 +38,17 @@ export const products: Record<string, ProductConfig> = {
   },
   quickfinder: {
     title: "QuickFinder",
-    short_description: "a cross-platform keystroke launcher that boosts your productivity",
+    short_description: "A Cross-Platform Keystroke Launcher That Boosts Your Productivity",
     description:
-      "QuickFinder is a cross-platform keystroke launcher, featuring commands, applications and tons of useful actions. Available for MacOS, Linux, and Windows, it helps you access your favorite apps and actions with just a few keystrokes.",
+      "QuickFinder is a cross-platform keystroke launcher featuring commands, applications, and a wide range of useful actions. Available for macOS, Linux, and Windows, it enables you to access your favorite apps and workflows with just a few keystrokes.",
     image: "/projects/quick-finder.png",
     buttons: [
       {
-        text: "releases (download)",
+        text: "Releases (Download)",
         href: "https://github.com/QuickFinderApp/app/releases"
       },
       {
-        text: "view on github",
+        text: "View on GitHub",
         href: "https://github.com/QuickFinderApp/app"
       }
     ],
@@ -68,13 +68,13 @@ export const products: Record<string, ProductConfig> = {
   },
   deploynest: {
     title: "DeployNest",
-    short_description: "deploy a wide range of applications easily and efficiently",
+    short_description: "Deploy a Wide Range of Applications Easily and Efficiently",
     description:
-      "DeployNest is a platform designed to simplify application deployment. With an intuitive interface and powerful automation features, it makes deploying applications of any size or complexity a breeze.",
+      "DeployNest is a platform designed to simplify application deployment. With an intuitive interface and powerful automation features, it streamlines the process of deploying applications of any size or complexity.",
     image: "/projects/deploy-nest.png",
     buttons: [
       {
-        text: "soon...",
+        text: "Coming Soon",
         href: "#",
         disabled: true
       }

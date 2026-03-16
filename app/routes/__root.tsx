@@ -19,7 +19,7 @@ export const Route = createRootRoute({
       },
       ...seo({
         title: "Multibox Labs",
-        description: "Interesting applications and services can be found here."
+        description: "Software tools and applications engineered for performance, built by Multibox Labs."
       })
     ],
     links: [
@@ -70,7 +70,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
                 className="mt-8 text-gray-400 text-sm relative z-10 flex flex-col items-center"
               >
                 <div className="h-px w-24 bg-gradient-to-r from-transparent via-gray-500/30 to-transparent mb-6"></div>
-                <p>© {new Date().getFullYear()} multibox labs. all rights reserved.</p>
+                <p>&copy; {new Date().getFullYear()} Multibox Labs. All Rights Reserved.</p>
               </motion.footer>
             </div>
           </div>

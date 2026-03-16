@@ -25,8 +25,9 @@ export default function DeployNestPage() {
           <h2 className="text-2xl font-semibold mb-4 text-purple-300">Coming Soon</h2>
           <div className="prose prose-invert max-w-none">
             <p>
-              DeployNest is currently in active development. We're building a platform that will simplify the deployment
-              process for applications of all sizes, from small personal projects to large enterprise applications.
+              DeployNest is currently in active development. We are building a platform that will simplify the
+              deployment process for applications of all sizes, from small personal projects to large-scale enterprise
+              systems.
             </p>
           </div>
         </motion.div>
