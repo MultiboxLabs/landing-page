@@ -20,6 +20,43 @@ export interface ProductConfig {
 }
 
 export const products: Record<string, ProductConfig> = {
+  flow: {
+    title: "Flow",
+    short_description: "A Modern, Fast, and Secure Web Browser",
+    description:
+      "Flow is a next-generation web browser built for speed, security, and productivity. Featuring Spaces for organized browsing, split views, and a sleek interface, it redefines how you navigate the web.",
+    image: "/projects/flow.png",
+    buttons: [
+      {
+        text: "Download",
+        href: "https://flow-browser.com/download"
+      },
+      {
+        text: "Learn More",
+        href: "https://flow-browser.com"
+      }
+    ],
+    gradientFrom: "sky",
+    gradientTo: "cyan",
+    openSource: true,
+    slug: "flow"
+  },
+  rotracker: {
+    title: "RoTracker",
+    short_description: "Track Your Roblox Game and Avatar History",
+    description:
+      "RoTracker is a tracking tool for Roblox that lets you monitor your game activity and avatar history. Keep a detailed record of your Roblox sessions, track screen time, and review your avatar changes over time.",
+    image: "/projects/rotracker.png",
+    buttons: [
+      {
+        text: "Visit RoTracker",
+        href: "https://rotracker.app"
+      }
+    ],
+    gradientFrom: "blue",
+    gradientTo: "indigo",
+    slug: "rotracker"
+  },
   conversio: {
     title: "Conversio",
     short_description: "Get Answers to Any Question Quickly & Easily With AI",
@@ -65,23 +102,5 @@ export const products: Record<string, ProductConfig> = {
     gradientTo: "purple",
     openSource: true,
     slug: "quickfinder"
-  },
-  deploynest: {
-    title: "DeployNest",
-    short_description: "Deploy a Wide Range of Applications Easily and Efficiently",
-    description:
-      "DeployNest is a platform designed to simplify application deployment. With an intuitive interface and powerful automation features, it streamlines the process of deploying applications of any size or complexity.",
-    image: "/projects/deploy-nest.png",
-    buttons: [
-      {
-        text: "Coming Soon",
-        href: "#",
-        disabled: true
-      }
-    ],
-    gradientFrom: "amber",
-    gradientTo: "red",
-    isComingSoon: true,
-    slug: "deploynest"
   }
 };

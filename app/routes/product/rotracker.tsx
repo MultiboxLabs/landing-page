@@ -4,12 +4,12 @@ import { ProductLayout } from "@/components/product/product-layout";
 import { motion } from "motion/react";
 import { products } from "@/config/products";
 
-export const Route = createFileRoute("/product/deploynest")({
-  component: DeployNestPage
+export const Route = createFileRoute("/product/rotracker")({
+  component: RoTrackerPage
 });
 
-export default function DeployNestPage() {
-  const productData = products.deploynest;
+export default function RoTrackerPage() {
+  const productData = products.rotracker;
 
   return (
     <ProductLayout>
@@ -22,12 +22,15 @@ export default function DeployNestPage() {
           transition={{ delay: 0.4 }}
           className="mt-12"
         >
-          <h2 className="text-2xl font-semibold mb-4 text-purple-300">Coming Soon</h2>
+          <h2 className="text-2xl font-semibold mb-4 text-purple-300">About RoTracker</h2>
           <div className="prose prose-invert max-w-none">
             <p>
-              DeployNest is currently in active development. We are building a platform that will simplify the
-              deployment process for applications of all sizes, from small personal projects to large-scale enterprise
-              systems.
+              RoTracker provides comprehensive tracking for your Roblox activity. Monitor your game history, keep tabs
+              on screen time, and maintain a complete record of your avatar changes — all in one place.
+            </p>
+            <p className="mt-4">
+              Whether you want to review which games you have played, analyze your activity patterns, or simply keep a
+              visual history of your avatar evolution, RoTracker makes it effortless.
             </p>
           </div>
         </motion.div>

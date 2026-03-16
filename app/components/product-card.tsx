@@ -39,7 +39,7 @@ export function ProductCard({
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.5 }}
-      className="group relative flex flex-col items-center backdrop-blur-sm p-8 rounded-2xl overflow-hidden transition-all duration-500 hover:shadow-xl"
+      className="group/card relative flex flex-col items-center backdrop-blur-sm p-8 rounded-2xl overflow-hidden transition-all duration-500 hover:shadow-xl"
       style={{
         background: `linear-gradient(130deg, ${fromColor[950]}, ${toColor[950]})`,
         border: `1px solid rgba(255, 255, 255, 0.05)`
@@ -47,7 +47,7 @@ export function ProductCard({
     >
       {/* Card background glow effect */}
       <div
-        className="absolute inset-0 opacity-0 group-hover:opacity-20 transition-opacity duration-700 pointer-events-none z-0"
+        className="absolute inset-0 opacity-0 group-hover/card:opacity-20 transition-opacity duration-700 pointer-events-none z-0"
         style={{
           background: `radial-gradient(circle at center, ${fromColor[400]}50, transparent 70%)`
         }}
@@ -55,7 +55,7 @@ export function ProductCard({
 
       {/* Subtle border glow on hover */}
       <div
-        className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none"
+        className="absolute inset-0 opacity-0 group-hover/card:opacity-100 transition-opacity duration-700 pointer-events-none"
         style={{
           boxShadow: `inset 0 0 20px ${fromColor[500]}30, 0 0 30px ${fromColor[500]}20`
         }}
@@ -85,7 +85,7 @@ export function ProductCard({
         >
           {/* Icon shine effect */}
           <div className="absolute inset-0 overflow-hidden rounded-2xl">
-            <div className="w-full h-full absolute top-0 left-[-100%] group-hover:left-[100%] bg-gradient-to-r from-transparent via-white/10 to-transparent transition-all duration-1000 ease-in-out pointer-events-none" />
+            <div className="w-full h-full absolute top-0 left-[-100%] group-hover/card:left-[100%] bg-gradient-to-r from-transparent via-white/10 to-transparent transition-all duration-1000 ease-in-out pointer-events-none" />
           </div>
 
           {image ? (
@@ -145,7 +145,7 @@ export function ProductCard({
               target="_blank"
               whileHover={{ scale: 1.02, y: -1 }}
               transition={{ type: "spring", stiffness: 300 }}
-              className={`w-full px-8 py-2.5 rounded-full text-sm transition-all duration-300 flex items-center justify-center border hover:opacity-90 ${button.disabled ? "opacity-50 pointer-events-none" : ""}`}
+              className={`group/btn w-full px-8 py-2.5 rounded-full text-sm transition-all duration-300 flex items-center justify-center border hover:opacity-90 ${button.disabled ? "opacity-50 pointer-events-none" : ""}`}
               style={{
                 background: `linear-gradient(to right, ${fromColor[600]}33, ${toColor[600]}33)`,
                 borderColor: `${fromColor[500]}4d`
@@ -153,7 +153,7 @@ export function ProductCard({
               aria-disabled={button.disabled}
               onClick={button.disabled ? (e) => e.preventDefault() : undefined}
             >
-              <ArrowRightIcon className="w-4 h-4 mr-2 transition-transform duration-300 group-hover:translate-x-1" />{" "}
+              <ArrowRightIcon className="w-4 h-4 mr-2 transition-transform duration-300 group-hover/btn:translate-x-1" />{" "}
               {button.text}
             </motion.a>
           )
@@ -174,7 +174,7 @@ export function ProductCard({
             damping: 10,
             delay: 0.1
           }}
-          className="w-full px-8 py-3 rounded-full text-sm font-medium transition-all duration-300 flex items-center justify-center border-2 mt-4 hover:shadow-lg relative z-10 overflow-hidden group"
+          className="w-full px-8 py-3 rounded-full text-sm font-medium transition-all duration-300 flex items-center justify-center border-2 mt-4 hover:shadow-lg relative z-10 overflow-hidden group/btn"
           style={{
             background: fromColor[500],
             backgroundImage: `linear-gradient(to right, ${fromColor[500]}, ${toColor[500]})`,
@@ -185,10 +185,10 @@ export function ProductCard({
         >
           {/* Button shine effect */}
           <div className="absolute inset-0 overflow-hidden">
-            <div className="w-full h-full absolute top-0 left-[-100%] group-hover:left-[100%] bg-gradient-to-r from-transparent via-white/20 to-transparent transition-all duration-700 ease-in-out" />
+            <div className="w-full h-full absolute top-0 left-[-100%] group-hover/btn:left-[100%] bg-gradient-to-r from-transparent via-white/20 to-transparent transition-all duration-700 ease-in-out" />
           </div>
-          <ArrowRightIcon className="w-4 h-4 mr-2 transition-transform duration-300 group-hover:translate-x-1" /> View
-          Details
+          <ArrowRightIcon className="w-4 h-4 mr-2 transition-transform duration-300 group-hover/btn:translate-x-1" />{" "}
+          View Details
         </motion.a>
       )}
     </motion.div>

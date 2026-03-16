@@ -12,8 +12,9 @@
 
 import { Route as rootRoute } from './routes/__root'
 import { Route as IndexImport } from './routes/index'
+import { Route as ProductRotrackerImport } from './routes/product/rotracker'
 import { Route as ProductQuickfinderImport } from './routes/product/quickfinder'
-import { Route as ProductDeploynestImport } from './routes/product/deploynest'
+import { Route as ProductFlowImport } from './routes/product/flow'
 import { Route as ProductConversioImport } from './routes/product/conversio'
 import { Route as ProductSlugImport } from './routes/product/$slug'
 
@@ -25,15 +26,21 @@ const IndexRoute = IndexImport.update({
   getParentRoute: () => rootRoute,
 } as any)
 
+const ProductRotrackerRoute = ProductRotrackerImport.update({
+  id: '/product/rotracker',
+  path: '/product/rotracker',
+  getParentRoute: () => rootRoute,
+} as any)
+
 const ProductQuickfinderRoute = ProductQuickfinderImport.update({
   id: '/product/quickfinder',
   path: '/product/quickfinder',
   getParentRoute: () => rootRoute,
 } as any)
 
-const ProductDeploynestRoute = ProductDeploynestImport.update({
-  id: '/product/deploynest',
-  path: '/product/deploynest',
+const ProductFlowRoute = ProductFlowImport.update({
+  id: '/product/flow',
+  path: '/product/flow',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -74,11 +81,11 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ProductConversioImport
       parentRoute: typeof rootRoute
     }
-    '/product/deploynest': {
-      id: '/product/deploynest'
-      path: '/product/deploynest'
-      fullPath: '/product/deploynest'
-      preLoaderRoute: typeof ProductDeploynestImport
+    '/product/flow': {
+      id: '/product/flow'
+      path: '/product/flow'
+      fullPath: '/product/flow'
+      preLoaderRoute: typeof ProductFlowImport
       parentRoute: typeof rootRoute
     }
     '/product/quickfinder': {
@@ -86,6 +93,13 @@ declare module '@tanstack/react-router' {
       path: '/product/quickfinder'
       fullPath: '/product/quickfinder'
       preLoaderRoute: typeof ProductQuickfinderImport
+      parentRoute: typeof rootRoute
+    }
+    '/product/rotracker': {
+      id: '/product/rotracker'
+      path: '/product/rotracker'
+      fullPath: '/product/rotracker'
+      preLoaderRoute: typeof ProductRotrackerImport
       parentRoute: typeof rootRoute
     }
   }
@@ -97,16 +111,18 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/product/$slug': typeof ProductSlugRoute
   '/product/conversio': typeof ProductConversioRoute
-  '/product/deploynest': typeof ProductDeploynestRoute
+  '/product/flow': typeof ProductFlowRoute
   '/product/quickfinder': typeof ProductQuickfinderRoute
+  '/product/rotracker': typeof ProductRotrackerRoute
 }
 
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/product/$slug': typeof ProductSlugRoute
   '/product/conversio': typeof ProductConversioRoute
-  '/product/deploynest': typeof ProductDeploynestRoute
+  '/product/flow': typeof ProductFlowRoute
   '/product/quickfinder': typeof ProductQuickfinderRoute
+  '/product/rotracker': typeof ProductRotrackerRoute
 }
 
 export interface FileRoutesById {
@@ -114,8 +130,9 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/product/$slug': typeof ProductSlugRoute
   '/product/conversio': typeof ProductConversioRoute
-  '/product/deploynest': typeof ProductDeploynestRoute
+  '/product/flow': typeof ProductFlowRoute
   '/product/quickfinder': typeof ProductQuickfinderRoute
+  '/product/rotracker': typeof ProductRotrackerRoute
 }
 
 export interface FileRouteTypes {
@@ -124,22 +141,25 @@ export interface FileRouteTypes {
     | '/'
     | '/product/$slug'
     | '/product/conversio'
-    | '/product/deploynest'
+    | '/product/flow'
     | '/product/quickfinder'
+    | '/product/rotracker'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/product/$slug'
     | '/product/conversio'
-    | '/product/deploynest'
+    | '/product/flow'
     | '/product/quickfinder'
+    | '/product/rotracker'
   id:
     | '__root__'
     | '/'
     | '/product/$slug'
     | '/product/conversio'
-    | '/product/deploynest'
+    | '/product/flow'
     | '/product/quickfinder'
+    | '/product/rotracker'
   fileRoutesById: FileRoutesById
 }
 
@@ -147,16 +167,18 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   ProductSlugRoute: typeof ProductSlugRoute
   ProductConversioRoute: typeof ProductConversioRoute
-  ProductDeploynestRoute: typeof ProductDeploynestRoute
+  ProductFlowRoute: typeof ProductFlowRoute
   ProductQuickfinderRoute: typeof ProductQuickfinderRoute
+  ProductRotrackerRoute: typeof ProductRotrackerRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   ProductSlugRoute: ProductSlugRoute,
   ProductConversioRoute: ProductConversioRoute,
-  ProductDeploynestRoute: ProductDeploynestRoute,
+  ProductFlowRoute: ProductFlowRoute,
   ProductQuickfinderRoute: ProductQuickfinderRoute,
+  ProductRotrackerRoute: ProductRotrackerRoute,
 }
 
 export const routeTree = rootRoute
@@ -172,8 +194,9 @@ export const routeTree = rootRoute
         "/",
         "/product/$slug",
         "/product/conversio",
-        "/product/deploynest",
-        "/product/quickfinder"
+        "/product/flow",
+        "/product/quickfinder",
+        "/product/rotracker"
       ]
     },
     "/": {
@@ -185,11 +208,14 @@ export const routeTree = rootRoute
     "/product/conversio": {
       "filePath": "product/conversio.tsx"
     },
-    "/product/deploynest": {
-      "filePath": "product/deploynest.tsx"
+    "/product/flow": {
+      "filePath": "product/flow.tsx"
     },
     "/product/quickfinder": {
       "filePath": "product/quickfinder.tsx"
+    },
+    "/product/rotracker": {
+      "filePath": "product/rotracker.tsx"
     }
   }
 }
