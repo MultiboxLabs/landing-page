@@ -22,7 +22,7 @@ export interface ProductConfig {
 export const products: Record<string, ProductConfig> = {
   flow: {
     title: "Flow",
-    short_description: "A Modern, Fast, and Secure Web Browser",
+    short_description: "An opinionated web browser for productivity and organization.",
     description:
       "Flow is a next-generation web browser built for speed, security, and productivity. Featuring Spaces for organized browsing, split views, and a sleek interface, it redefines how you navigate the web.",
     image: "/projects/flow.png",
